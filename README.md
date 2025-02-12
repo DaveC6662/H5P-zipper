@@ -53,7 +53,7 @@ Run the binary:
 ```
 
 ## Contributing
-Pull requests are welcome! If you encounter issues, feel free to open a ticket in the [Issues](https://github.com/your-username/H5PCompressor/issues) section.
+Pull requests are welcome! If you encounter issues, feel free to open a ticket in the [Issues](https://github.com/DaveC6662/H5P-zipper/issues) section.
 
 ## Author
 **Davin Chiupka**
