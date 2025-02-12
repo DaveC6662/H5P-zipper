@@ -1,4 +1,4 @@
-# H5PCompressor
+# H5P Zipper
 
 ## Overview
 H5PCompressor is a lightweight utility for compressing H5P content folders into valid `.h5p` files. This tool ensures correct file paths for H5P validation and creates a properly formatted package.
