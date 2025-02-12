@@ -14,7 +14,7 @@ This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**
 
 ## Installation
 ### Windows (Standalone Executable)
-Download the latest release from [GitHub Releases](https://github.com/your-username/H5PCompressor/releases) and run the executable.
+Download the latest release from [GitHub Releases](https://github.com/DaveC6662/H5P-zipper/releases) and run the executable.
 
 ### Building from Source
 Ensure you have **.NET SDK 6.0+** installed.
