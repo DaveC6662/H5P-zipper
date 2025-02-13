@@ -1,7 +1,7 @@
 # H5P Zipper
 
 ## Overview
-H5PCompressor is a lightweight utility for compressing H5P content folders into valid `.h5p` files. This tool ensures correct file paths for H5P validation and creates a properly formatted package.
+H5Pzipper is a lightweight utility for compressing H5P content folders into valid `.h5p` files. This tool ensures correct file paths for H5P validation and creates a properly formatted package.
 
 ## Features
 - Converts an H5P folder into a `.h5p` package.
@@ -21,8 +21,8 @@ Ensure you have **.NET SDK 6.0+** installed.
 
 Clone the repository:
 ```sh
-git clone https://github.com/your-username/H5PCompressor.git
-cd H5PCompressor
+git clone https://github.com/DaveC6662/H5P-zipper.git
+cd H5Pzipper
 ```
 Build the project:
 ```sh
@@ -33,13 +33,13 @@ dotnet build -c Release
 ### Running the Program
 To compress an H5P folder, run the executable from a terminal:
 ```sh
-H5PCompressor.exe
+H5Pzipper.exe
 ```
 Enter the path to your H5P content folder when prompted.
 
 Alternatively, run it via command-line with a folder path:
 ```sh
-H5PCompressor.exe "C:\path\to\h5p-folder"
+H5Pzipper.exe "C:\path\to\h5p-folder"
 ```
 
 ### Linux/macOS
@@ -49,7 +49,7 @@ dotnet publish -c Release -r linux-x64 --self-contained true -p:PublishSingleFil
 ```
 Run the binary:
 ```sh
-./release-linux/H5PCompressor
+./release-linux/H5Pzipper
 ```
 
 ## Contributing

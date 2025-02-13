@@ -1,5 +1,5 @@
 ﻿/*
- * H5PCompressor - A utility to compress H5P content into a valid .h5p file.
+ * H5PZipper - A utility to compress H5P content into a valid .h5p file.
  * 
  * Author: Davin Chiupka
  * License: GNU General Public License v3.0 (GPL-3.0)
@@ -20,13 +20,11 @@
 */
 
 
-using System;
-using System.IO;
 using System.IO.Compression;
 
 namespace H5Pzipper;
 
-internal class H5PCompressor
+internal class H5Pzipper
 {
     /// <summary>
     /// Compresses an H5P folder into a valid .h5p file.
@@ -72,21 +70,96 @@ internal class H5PCompressor
             }
         }
 
-        Console.WriteLine($"Successfully created: {outputZipFile}");
+        Console.WriteLine($"\nSuccessfully created: {outputZipFile}\n");
+    }
+
+    private static void ShowHelp()
+    {
+        Console.Clear();
+        Console.WriteLine(@"
+===============================================================
+                        H5P Zipper Help
+===============================================================
+
+This tool allows you to compress an extracted H5P folder into 
+a valid .h5p package.
+
+USAGE:
+1. Extract your H5P file.
+2. When prompted, enter the path to the extracted H5P folder.
+3. The tool will generate a compressed .h5p file in the same 
+   directory as the provided folder.
+
+NOTES:
+- Ensure the folder contains a valid H5P structure 
+  before compressing.
+- The output file will overwrite any existing .h5p file 
+  with the same name in the same directory.
+
+For more details, refer to the official H5P documentation:
+https://h5p.org/documentation
+
+===============================================================
+");
+    }
+
+    private static void ShowHeader()
+    {
+        Console.WriteLine("""
+
+                          ██╗  ██╗███████╗██████╗     ███████╗██╗██████╗ ██████╗ ███████╗██████╗ 
+                          ██║  ██║██╔════╝██╔══██╗    ╚══███╔╝██║██╔══██╗██╔══██╗██╔════╝██╔══██╗
+                          ███████║███████╗██████╔╝      ███╔╝ ██║██████╔╝██████╔╝█████╗  ██████╔╝
+                          ██╔══██║╚════██║██╔═══╝      ███╔╝  ██║██╔═══╝ ██╔═══╝ ██╔══╝  ██╔══██╗
+                          ██║  ██║███████║██║         ███████╗██║██║     ██║     ███████╗██║  ██║
+                          ╚═╝  ╚═╝╚══════╝╚═╝         ╚══════╝╚═╝╚═╝     ╚═╝     ╚══════╝╚═╝  ╚═╝
+                           ======================================================================
+                                     H5P Zipper - Create Valid .h5p Packages
+                                            By: Davin Chiupka
+                          =======================================================================
+
+                          """);
     }
 
     private static void Main()
     {
-        Console.WriteLine("H5P Compressor - Create a Valid H5P Package \n");
-        Console.Write("Enter the folder path containing H5P content: ");
-        var sourceFolder = Console.ReadLine()?.Trim() ?? "";
-
-        while (!Directory.Exists(sourceFolder))
+        ShowHeader();
+        while (true)
         {
-            Console.Write("Invalid folder. Please enter a valid path: ");
-            sourceFolder = Console.ReadLine()?.Trim() ?? "";
-        }
+            Console.WriteLine("1 - Compress an H5P folder");
+            Console.WriteLine("2 - Help");
+            Console.WriteLine("3 - Exit");
+            Console.Write("Select an option: ");
 
-        CreateH5PPackage(sourceFolder);
+            var choice = Console.ReadLine()?.Trim();
+
+            switch (choice)
+            {
+                case "1":
+                    Console.Write("\nEnter the folder path containing H5P content: ");
+                    var sourceFolder = Console.ReadLine()?.Trim() ?? "";
+
+                    while (!Directory.Exists(sourceFolder))
+                    {
+                        Console.Write("Invalid folder. Please enter a valid path: ");
+                        sourceFolder = Console.ReadLine()?.Trim() ?? "";
+                    }
+
+                    CreateH5PPackage(sourceFolder);
+                    break;
+
+                case "2":
+                    ShowHelp();
+                    break;
+
+                case "3":
+                    Console.WriteLine("Exiting...");
+                    return;
+
+                default:
+                    Console.WriteLine("Invalid option. Please select a valid number.");
+                    break;
+            }
+        }
     }
 }
